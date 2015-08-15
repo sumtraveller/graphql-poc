@@ -5,6 +5,10 @@ import {
 	GraphQLString,
 } from 'graphql';
 
+var countNumTimesCalled = 0;
+
+import { getEmail } from './controller';
+
 export const PersonType = new GraphQLObjectType({
 	name: 'Person',
 	description: 'Describe a Person',
@@ -31,6 +35,11 @@ export const PersonType = new GraphQLObjectType({
 			zip: {
 				type: GraphQLString
 			}
+		},
+		email:{
+			type:GraphQLString,
+			description: 'Email',
+			resolve: getEmail 
 		}
 	})
 });
