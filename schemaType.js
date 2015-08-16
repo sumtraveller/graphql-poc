@@ -36,10 +36,10 @@ export const PersonType = new GraphQLObjectType({
 				type: GraphQLString
 			}
 		},
-		email:{
+		email: {
 			type:GraphQLString,
 			description: 'Email',
-			resolve: getEmail 
-		}
+			resolve: (person)=> getEmail(person),
+		},
 	})
 });

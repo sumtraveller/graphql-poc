@@ -16,7 +16,11 @@ const schema = new GraphQLSchema({
 		fields: {
 			people: {
 				type: new GraphQLList(PersonType),
-				resolve: () => getClients()
+				resolve: getClients,
+			},
+			emails:{
+				type: new GraphQLList(GraphQLString),
+				resolve:(people) =>{ console.log("here here"); console.log(JSON.stringify(people, null, 2)); return "nan"; }
 			},
 			count: {
 				type: GraphQLInt,
