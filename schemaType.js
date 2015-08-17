@@ -199,12 +199,17 @@ export const PatientType = new GraphQLObjectType({
             type: GraphQLInt,
             description: "id"
         },
-        demographic: {
-            type: PatientDemographic,
-            description: 'Patient Demographics',
-            resolve: (patient)=> getPatientDemographic(patient)
-        }
+        firstName: {
+            type: GraphQLString,
+            description: 'Patient first name',
+        },
+        lastName: {
+            type: GraphQLString,
+            description: 'Patient last name',
+        },
     }),
+    //resolve: (patient)=> getPatientDemographic(patient),
+
     /*,
      ,
      medicalStatus: {

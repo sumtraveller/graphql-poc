@@ -81,17 +81,9 @@ export const getPatientById = (patientId)=> {
     // create the signature to function given a queueOfPatients
     // johnsPatientDemographicFunction( [patientIds] )
     console.log(patientId)
-    let patient = getPatientDemographicFromFile(patientId)
-    console.log(patient.id)
+    var patient = getPatientDemographicFromFile(patientId)
+    console.log(patient[0].id)
 
-    return new Promise((resolve, reject)=> {
-        resolve({id:patientId})
-    });
-
-//    fetch('/data/patientAddresses.json').then((response) => response.json()).then((response) => {
-//        queue.forEach(([patientAddress, resolve], index) => {
-//            console.log(patientAddress)
-//        })
-//    })
+    return patient[0];
 }
 

@@ -1,17 +1,23 @@
 /**
  * Created by ahuffman on 8/17/15.
  */
-
-let patients = require('./patientDemographics.json')
+let patientData = require('./patientDemographics.json');
 
 //let getWithDelayReturnPromise = (fn)=>{
 //    return Promise(fn).wait();
 //}
 //
 export const getPatientDemographicsFromFile = (patientIds)=> {
-    return patients.filter((patient)=> patientIds.contains(patient.id));
+    return patientData.filter((patient)=> patientIds.contains(patient.id));
 }
 
 export const getPatientDemographicFromFile = (patientId)=> {
-    return patients.filter((patient)=> patientId == patient.id);
+    console.log('getting patient demographic data');
+    return patientData.filter(function(patient) {
+        if (patient.id == patientId) {
+            console.log('patient value in stubFunctions is ');
+            console.log(patient);
+            return patient;
+        }
+    });
 }

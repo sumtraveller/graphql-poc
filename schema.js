@@ -41,8 +41,6 @@ const schema = new GraphQLSchema({
                     id: {type: GraphQLInt}
                 },
                 resolve: (__placeholder, {id}) => {
-                    console.log("Alan is here")
-                    console.log(id);
                     return getPatientById(id)
                 }
             },
