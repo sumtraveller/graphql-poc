@@ -9,6 +9,7 @@ import {
 var countNumTimesCalled = 0;
 
 import { getEmail } from './controller';
+import { getPatientDemographic } from './controller';
 
 export const PersonType = new GraphQLObjectType({
     name: 'Person',
@@ -42,6 +43,9 @@ export const PersonType = new GraphQLObjectType({
             description: 'Email',
             resolve: (person)=> getEmail(person),
         },
+        args: {
+            limit: {type: GraphQLInt}
+        }
     })
 });
 
@@ -111,9 +115,14 @@ export const FinancialTransaction = new GraphQLObjectType({
             type: GraphQLString,
             description: 'Type'
         },
+        medicalTreatmentId: {
+            type: GraphQLInt,
+            description: 'Medical Treatment Id'
+        },
         medicalTreatment: {
             type: MedicalTreatment,
-            description: 'Medical Treatment'
+            description: 'Medical Treatment',
+            resolve: (financialTransaction)=> getMedicalTreatment(financialTransaction.medicalTreatmentId)
         },
         amount: {
             type: GraphQLInt,
@@ -140,7 +149,8 @@ export const PatientFinanceProgram = new GraphQLObjectType({
         },
         transactions: {
             type: GraphQLList(FinancialTransaction),
-            description: 'Financial Transactions'
+            description: 'Financial Transactions',
+            resolve: (patient)=> getPatientFinancialTransactions(patient)
         },
     }),
 });
@@ -171,11 +181,12 @@ export const PatientDemographic = new GraphQLObjectType({
         },
         lastName: {
             type: GraphQLString,
-            description: 'firstname'
+            description: 'lastname'
         },
         address: {
             type: PatientAddress,
-            description: 'Patient Address'
+            description: 'Patient Address',
+            resolve: (patient)=> getPatientAddress(patient)
         },
     }),
 })
@@ -185,18 +196,17 @@ export const PatientType = new GraphQLObjectType({
     description: 'A patient record',
     demographic: {
         type: PatientDemographic,
-        description: 'Patient Demographics'
+        description: 'Patient Demographics',
+        resolve: (patient)=> getPatientDemographic(patient)
     },
     medicalStatus: {
         type: PatientMedicalStatus,
-        description: 'Patient Medical Status'
+        description: 'Patient Medical Status',
+        resolve: (patient)=> getPatientMedicalStatus(patient)
     },
     financeProgram: {
         type: PatientFinanceProgram,
-        description: 'Finance Program'
-    },
-    medicalTreatments: {
-        type: MedicalTreatments,
-        description: 'medical Treatments'
-    },
+        description: 'Finance Program',
+        resolve: (patient)=> getPatientFinanceProgram(patient)
+    }
 })

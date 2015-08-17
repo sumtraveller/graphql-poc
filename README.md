@@ -6,7 +6,7 @@ Install dependencies
 
 `npm install`
 
-Start the server 
+Start the server
 
 `npm start`
 
@@ -17,3 +17,9 @@ Run the queries in a new terminal tab
 To see the N+1 problem:
 
 url -XPOST -H 'Content-Type:application/graphql' -d '{ people { fname, lname, age, email }  }' http://localhost:3000/graphql
+
+Here is a query for N number of people
+curl -XPOST -H 'Content-Type:application/graphql'  -d '{ people(limit:5){ fname } }' http://localhost:3000/graphql
+
+Get 5 patient w/ demographic
+curl -XPOST -H 'Content-Type:application/graphql'  -d '{ patients(limit:5){ demographic{ firstName, lastName } }' http://localhost:3000/graphql

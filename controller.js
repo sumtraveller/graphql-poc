@@ -1,6 +1,7 @@
 import fetch from 'node-fetch';
 import debouncedFetch from './utils/debouncedFetch'
 
+import { getPatientDemographicFromFile } from './data/stubFunctions';
 
 export const getClients = () => {
     var url = 'http://www.filltext.com/?rows=5&fname={firstName}&lname={lastName}&age={number|70}&address={addressObject}';
@@ -22,5 +23,21 @@ export const getEmail = debouncedFetch((queue) => {
     })
 })
 
+
+
+export const getPatientDemographic = debounceFetch((queueOfPatients)=> {
+    // create the signature to function given a queueOfPatients
+    // johnsPatientDemographicFunction( [patientIds] )
+    let patientIds = queueOfPatients.map((patient)=> patient.id)
+    getPatientDemographicFromFile( patientIds )
+
+    // fetch all the demographics for all the patients in the queue
+    fetch(url).then((response) => response.json()).then((response) => {
+        queue.forEach(([patient, resolve],index) => {
+            resolve(response[index])
+        })
+    })
+
+})
 
 
