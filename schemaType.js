@@ -49,10 +49,6 @@ export const PatientAddress = new GraphQLObjectType({
     name: 'PatientAddress',
     description: 'Address',
     fields: ()=> ({
-        id: {
-            type: GraphQLInt,
-            description: "Id"
-        },
         patientId: {
             type: GraphQLInt,
             description: "Patient Id"
@@ -120,7 +116,7 @@ export const FinancialTransaction = new GraphQLObjectType({
             description: 'Medical Treatment'
         },
         amount: {
-            type: GraphQLFloat,
+            type: GraphQLInt,
             description: 'Amount'
         },
         transactionDate: {
@@ -130,8 +126,8 @@ export const FinancialTransaction = new GraphQLObjectType({
     }),
 });
 
-export const FinanceProgram = new GraphQLObjectType({
-    name: 'FinanceProgram',
+export const PatientFinanceProgram = new GraphQLObjectType({
+    name: 'PatientFinanceProgram',
     description: 'Finance program',
     fields: ()=> ({
         patientId: {
@@ -144,7 +140,7 @@ export const FinanceProgram = new GraphQLObjectType({
         },
         transactions: {
             type: GraphQLList(FinancialTransaction),
-            description: 'UpdatedDate'
+            description: 'Financial Transactions'
         },
     }),
 });
@@ -196,7 +192,7 @@ export const PatientType = new GraphQLObjectType({
         description: 'Patient Medical Status'
     },
     financeProgram: {
-        type: FinanceProgram,
+        type: PatientFinanceProgram,
         description: 'Finance Program'
     },
     medicalTreatments: {

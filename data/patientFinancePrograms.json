@@ -1,0 +1,402 @@
+[
+  {
+    "patientId": 1,
+    "balance": 937997
+  },
+  {
+    "patientId": 2,
+    "balance": 870685
+  },
+  {
+    "patientId": 3,
+    "balance": 229373
+  },
+  {
+    "patientId": 4,
+    "balance": 522918
+  },
+  {
+    "patientId": 5,
+    "balance": 357386
+  },
+  {
+    "patientId": 6,
+    "balance": 479251
+  },
+  {
+    "patientId": 7,
+    "balance": 399201
+  },
+  {
+    "patientId": 8,
+    "balance": 723256
+  },
+  {
+    "patientId": 9,
+    "balance": 83085
+  },
+  {
+    "patientId": 10,
+    "balance": 397541
+  },
+  {
+    "patientId": 11,
+    "balance": 221008
+  },
+  {
+    "patientId": 12,
+    "balance": 316697
+  },
+  {
+    "patientId": 13,
+    "balance": 50682
+  },
+  {
+    "patientId": 14,
+    "balance": 62330
+  },
+  {
+    "patientId": 15,
+    "balance": 730744
+  },
+  {
+    "patientId": 16,
+    "balance": 891666
+  },
+  {
+    "patientId": 17,
+    "balance": 554396
+  },
+  {
+    "patientId": 18,
+    "balance": 476825
+  },
+  {
+    "patientId": 19,
+    "balance": 121141
+  },
+  {
+    "patientId": 20,
+    "balance": 715520
+  },
+  {
+    "patientId": 21,
+    "balance": 641864
+  },
+  {
+    "patientId": 22,
+    "balance": 924854
+  },
+  {
+    "patientId": 23,
+    "balance": 971494
+  },
+  {
+    "patientId": 24,
+    "balance": 136091
+  },
+  {
+    "patientId": 25,
+    "balance": 822000
+  },
+  {
+    "patientId": 26,
+    "balance": 278876
+  },
+  {
+    "patientId": 27,
+    "balance": 13925
+  },
+  {
+    "patientId": 28,
+    "balance": 365114
+  },
+  {
+    "patientId": 29,
+    "balance": 701033
+  },
+  {
+    "patientId": 30,
+    "balance": 827225
+  },
+  {
+    "patientId": 31,
+    "balance": 72973
+  },
+  {
+    "patientId": 32,
+    "balance": 566317
+  },
+  {
+    "patientId": 33,
+    "balance": 288816
+  },
+  {
+    "patientId": 34,
+    "balance": 456964
+  },
+  {
+    "patientId": 35,
+    "balance": 18434
+  },
+  {
+    "patientId": 36,
+    "balance": 946626
+  },
+  {
+    "patientId": 37,
+    "balance": 679290
+  },
+  {
+    "patientId": 38,
+    "balance": 944209
+  },
+  {
+    "patientId": 39,
+    "balance": 530577
+  },
+  {
+    "patientId": 40,
+    "balance": 247444
+  },
+  {
+    "patientId": 41,
+    "balance": 555535
+  },
+  {
+    "patientId": 42,
+    "balance": 208999
+  },
+  {
+    "patientId": 43,
+    "balance": 926387
+  },
+  {
+    "patientId": 44,
+    "balance": 733173
+  },
+  {
+    "patientId": 45,
+    "balance": 465588
+  },
+  {
+    "patientId": 46,
+    "balance": 677811
+  },
+  {
+    "patientId": 47,
+    "balance": 764171
+  },
+  {
+    "patientId": 48,
+    "balance": 687518
+  },
+  {
+    "patientId": 49,
+    "balance": 179383
+  },
+  {
+    "patientId": 50,
+    "balance": 44916
+  },
+  {
+    "patientId": 51,
+    "balance": 628628
+  },
+  {
+    "patientId": 52,
+    "balance": 718770
+  },
+  {
+    "patientId": 53,
+    "balance": 172844
+  },
+  {
+    "patientId": 54,
+    "balance": 438189
+  },
+  {
+    "patientId": 55,
+    "balance": 32761
+  },
+  {
+    "patientId": 56,
+    "balance": 756998
+  },
+  {
+    "patientId": 57,
+    "balance": 460450
+  },
+  {
+    "patientId": 58,
+    "balance": 999641
+  },
+  {
+    "patientId": 59,
+    "balance": 436606
+  },
+  {
+    "patientId": 60,
+    "balance": 265611
+  },
+  {
+    "patientId": 61,
+    "balance": 608544
+  },
+  {
+    "patientId": 62,
+    "balance": 848123
+  },
+  {
+    "patientId": 63,
+    "balance": 757045
+  },
+  {
+    "patientId": 64,
+    "balance": 524261
+  },
+  {
+    "patientId": 65,
+    "balance": 41003
+  },
+  {
+    "patientId": 66,
+    "balance": 345876
+  },
+  {
+    "patientId": 67,
+    "balance": 111702
+  },
+  {
+    "patientId": 68,
+    "balance": 87037
+  },
+  {
+    "patientId": 69,
+    "balance": 442409
+  },
+  {
+    "patientId": 70,
+    "balance": 964228
+  },
+  {
+    "patientId": 71,
+    "balance": 281417
+  },
+  {
+    "patientId": 72,
+    "balance": 338346
+  },
+  {
+    "patientId": 73,
+    "balance": 439746
+  },
+  {
+    "patientId": 74,
+    "balance": 518949
+  },
+  {
+    "patientId": 75,
+    "balance": 643006
+  },
+  {
+    "patientId": 76,
+    "balance": 781836
+  },
+  {
+    "patientId": 77,
+    "balance": 555847
+  },
+  {
+    "patientId": 78,
+    "balance": 934468
+  },
+  {
+    "patientId": 79,
+    "balance": 606531
+  },
+  {
+    "patientId": 80,
+    "balance": 229871
+  },
+  {
+    "patientId": 81,
+    "balance": 371635
+  },
+  {
+    "patientId": 82,
+    "balance": 819023
+  },
+  {
+    "patientId": 83,
+    "balance": 973904
+  },
+  {
+    "patientId": 84,
+    "balance": 160745
+  },
+  {
+    "patientId": 85,
+    "balance": 402020
+  },
+  {
+    "patientId": 86,
+    "balance": 938039
+  },
+  {
+    "patientId": 87,
+    "balance": 808414
+  },
+  {
+    "patientId": 88,
+    "balance": 349249
+  },
+  {
+    "patientId": 89,
+    "balance": 945750
+  },
+  {
+    "patientId": 90,
+    "balance": 599758
+  },
+  {
+    "patientId": 91,
+    "balance": 435223
+  },
+  {
+    "patientId": 92,
+    "balance": 781150
+  },
+  {
+    "patientId": 93,
+    "balance": 950836
+  },
+  {
+    "patientId": 94,
+    "balance": 568524
+  },
+  {
+    "patientId": 95,
+    "balance": 684209
+  },
+  {
+    "patientId": 96,
+    "balance": 620067
+  },
+  {
+    "patientId": 97,
+    "balance": 476843
+  },
+  {
+    "patientId": 98,
+    "balance": 418275
+  },
+  {
+    "patientId": 99,
+    "balance": 252409
+  },
+  {
+    "patientId": 100,
+    "balance": 141976
+  }
+]
