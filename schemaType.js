@@ -8,8 +8,8 @@ import {
 
 var countNumTimesCalled = 0;
 
-import { getEmail } from './controller';
-import { getPatientDemographic } from './controller';
+import { getEmail, getPatientDemographic, getPatientAddress } from './controller';
+
 
 export const PersonType = new GraphQLObjectType({
     name: 'Person',
@@ -155,7 +155,7 @@ export const PatientFinanceProgram = new GraphQLObjectType({
     }),
 });
 
-export const MedicalTreatments = new GraphQLObjectType({
+export const MedicalTreatment = new GraphQLObjectType({
     name: 'MedicalTreatment',
     description: 'Medical Treatment',
     fields: ()=> ({
@@ -203,6 +203,11 @@ export const PatientType = new GraphQLObjectType({
         type: PatientMedicalStatus,
         description: 'Patient Medical Status',
         resolve: (patient)=> getPatientMedicalStatus(patient)
+    },
+    address: {
+        type: PatientAddress,
+        description: 'Patient Address',
+        resolve: (patient) => getAddress(person)
     },
     financeProgram: {
         type: PatientFinanceProgram,
