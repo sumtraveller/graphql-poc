@@ -155,7 +155,7 @@ export const PatientFinanceProgram = new GraphQLObjectType({
     }),
 });
 
-export const MedicalTreatment = new GraphQLObjectType({
+export const MedicalTreatments = new GraphQLObjectType({
     name: 'MedicalTreatment',
     description: 'Medical Treatment',
     fields: ()=> ({

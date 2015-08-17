@@ -23,6 +23,12 @@ export const getEmail = debouncedFetch((queue) => {
     })
 })
 
+export const getPatientMedicalStatus = () => {
+    var url = 'http://www.filltext.com/?rows=10&id={number|70}&patientId={number|70}&status={firstName}&updatedDate={date|10-10-2010,10-12-2015}';
+    return fetch(url)
+        .then((res) => res.json())
+        .then((data) => Promise.resolve(data));
+}
 
 
 export const getPatientDemographic = debounceFetch((queueOfPatients)=> {

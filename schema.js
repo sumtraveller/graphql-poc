@@ -8,10 +8,12 @@ import {
 } from 'graphql';
 
 import { PersonType } from './schemaType';
-import { PatientType } from './schemaType';
+import { PatientMedicalStatus } from './schemaType';
 import { getClients } from './controller';
+import { getPatientMedicalStatus } from './controller';
 
 const schema = new GraphQLSchema({
+
     query: new GraphQLObjectType({
         name: 'RootQueryType',
         fields: {
