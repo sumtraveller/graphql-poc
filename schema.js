@@ -43,7 +43,7 @@ const schema = new GraphQLSchema({
                 resolve: (__placeholder, {id}) => {
                     console.log("Alan is here")
                     console.log(id);
-                    return getPatientsById(id)
+                    return getPatientById(id)
                 }
             },
             count: {

@@ -194,28 +194,32 @@ export const PatientDemographic = new GraphQLObjectType({
 export const PatientType = new GraphQLObjectType({
     name: 'Patient',
     description: 'A patient record',
-    id:{
-       type: GraphQLInt,
-       description: "Id"
-    },
-    demographic: {
-        type: PatientDemographic,
-        description: 'Patient Demographics',
-        resolve: (patient)=> getPatientDemographic(patient)
-    },
-    medicalStatus: {
-        type: PatientMedicalStatus,
-        description: 'Patient Medical Status',
-        resolve: (patient)=> getPatientMedicalStatus(patient)
-    },
-    address: {
-        type: PatientAddress,
-        description: 'Patient Address',
-        resolve: (patient) => getAddress(person)
-    },
-    financeProgram: {
-        type: PatientFinanceProgram,
-        description: 'Finance Program',
-        resolve: (patient)=> getPatientFinanceProgram(patient)
-    }
+    fields: ()=> ({
+        id: {
+            type: GraphQLInt,
+            description: "id"
+        },
+        demographic: {
+            type: PatientDemographic,
+            description: 'Patient Demographics',
+            resolve: (patient)=> getPatientDemographic(patient)
+        }
+    }),
+    /*,
+     ,
+     medicalStatus: {
+     type: PatientMedicalStatus,
+     description: 'Patient Medical Status',
+     resolve: (patient)=> getPatientMedicalStatus(patient)
+     },
+     address: {
+     type: PatientAddress,
+     description: 'Patient Address',
+     resolve: (patient) => getAddress(person)
+     },
+     financeProgram: {
+     type: PatientFinanceProgram,
+     description: 'Finance Program',
+     resolve: (patient)=> getPatientFinanceProgram(patient)
+     } */
 })

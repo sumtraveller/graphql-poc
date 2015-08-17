@@ -85,7 +85,7 @@ export const getPatientById = (patientId)=> {
     console.log(patient.id)
 
     return new Promise((resolve, reject)=> {
-        resolve(patient)
+        resolve({id:patientId})
     });
 
 //    fetch('/data/patientAddresses.json').then((response) => response.json()).then((response) => {
