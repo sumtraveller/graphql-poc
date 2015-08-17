@@ -8,7 +8,7 @@ import {
 } from 'graphql';
 
 import { PersonType, PatientType, PatientMedicalStatus } from './schemaType';
-import { getClients, getPatientMedicalStatus, getPatients, getPatientsById } from './controller';
+import { getClients, getPatientMedicalStatus, getPatients, getPatientById } from './controller';
 
 const schema = new GraphQLSchema({
 
@@ -19,7 +19,7 @@ const schema = new GraphQLSchema({
                 type: new GraphQLList(PersonType),
                 resolve: (__placeholder, {limit})=> {
                     console.log(limit);
-                   return getClients()
+                    return getClients()
                 },
                 args: {
                     limit: {type: GraphQLInt}
@@ -30,7 +30,7 @@ const schema = new GraphQLSchema({
                 args: {
                     limit: {type: GraphQLInt}
                 },
-                resolve: (__placeholder,{limit}) => {
+                resolve: (__placeholder, {limit}) => {
                     console.log(limit);
                     return getPatients(limit)
                 }
@@ -38,9 +38,10 @@ const schema = new GraphQLSchema({
             patient: {
                 type: PatientType,
                 args: {
-                    id: { type: GraphQLInt}
+                    id: {type: GraphQLInt}
                 },
-                resolve: ({id}) => {
+                resolve: (__placeholder, {id}) => {
+                    console.log("Alan is here")
                     console.log(id);
                     return getPatientsById(id)
                 }

@@ -194,6 +194,10 @@ export const PatientDemographic = new GraphQLObjectType({
 export const PatientType = new GraphQLObjectType({
     name: 'Patient',
     description: 'A patient record',
+    id:{
+       type: GraphQLInt,
+       description: "Id"
+    },
     demographic: {
         type: PatientDemographic,
         description: 'Patient Demographics',

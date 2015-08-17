@@ -23,3 +23,7 @@ curl -XPOST -H 'Content-Type:application/graphql'  -d '{ people(limit:5){ fname 
 
 Get 5 patient w/ demographic
 curl -XPOST -H 'Content-Type:application/graphql'  -d '{ patients(limit:5){ demographic{ firstName, lastName } }' http://localhost:3000/graphql
+
+
+Get a patient
+curl -XPOST -H 'Content-Type:application/graphql'  -d '{ patient(id:4){ demographic{ firstName } } }' http://localhost:3000/graphql
