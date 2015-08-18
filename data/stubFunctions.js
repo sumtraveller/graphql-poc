@@ -7,7 +7,7 @@ let patientMedicalStatusesData = require('./patientMedicalStatuses.json');
 
 export const getPatientDemographicFromFile = (patientId)=> {
     console.log('getting patient demographic data from file');
-    return patientDemographicData.filter(function(patient) {
+    return patientDemographicData.filter(function (patient) {
         if (patient.id == patientId) {
             return patient;
         }
@@ -15,12 +15,10 @@ export const getPatientDemographicFromFile = (patientId)=> {
 }
 
 export const getPatientAddressFromFile = (patientId)=> {
-    console.log('getting patient address data from file');
-    return patientAddressData.filter(function(patient) {
-        if (patient.id == patientId) {
-            return patient;
-        }
-    });
+    console.log(patientId);
+    var add = patientAddressData.filter((address) => address.patientId == patientId)
+    console.log(add);
+    return add;
 }
 
 export const getPatientMedicalStatusFromFile = (patientId)=> patientMedicalStatusesData.filter((medStatus)=> medStatus.patientId == patientId)[0]

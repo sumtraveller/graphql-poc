@@ -62,13 +62,7 @@ export const getPatientById = (patientId)=> {
     return patient[0];
 }
 
-export const findPatientAddressById = (patientId)=> {
-    console.log('findPatientAddressById');
-    console.log(patientId);
-    var patient = getPatientAddressFromFile(patientId);
-    console.log('getPatientAddressFromFile returned')
-    return patient[0];
-}
+export const findPatientAddressById = (patientId)=>  getPatientAddressFromFile(patientId)[0]
 
 export const getPatientMedicalStatus = (patient)=> {
 
@@ -76,5 +70,5 @@ export const getPatientMedicalStatus = (patient)=> {
     let medStatus = getPatientMedicalStatusFromFile(patient.id)
     console.log(medStatus);
     return new Promise((resolve, reject)=> { resolve(medStatus)} );
-    //return medStatus;
+
 }

@@ -185,7 +185,7 @@ export const PatientType = new GraphQLObjectType({
         address: {
             type: PatientAddress,
             description: 'Patient Address',
-            resolve: (_placeholder, {id}) => findPatientAddressById(id)
+            resolve: (patient) => findPatientAddressById(patient.id)
         },
         medicalStatus: {
             type: PatientMedicalStatus,
@@ -200,14 +200,14 @@ export const PatientType = new GraphQLObjectType({
     }),
 
     /*
-    ,
+     ,
      medicalStatus: {
      type: PatientMedicalStatus,
      description: 'Patient Medical Status',
      resolve: (patient)=> getPatientMedicalStatus(patient)
      },
 
-    /*,
+     /*,
      ,
      address: {
      type: PatientAddress,

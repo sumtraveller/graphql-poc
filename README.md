@@ -21,9 +21,7 @@ url -XPOST -H 'Content-Type:application/graphql' -d '{ people { fname, lname, ag
 Here is a query for N number of people
 curl -XPOST -H 'Content-Type:application/graphql'  -d '{ people(limit:5){ fname } }' http://localhost:3000/graphql
 
-Get 5 patient w/ demographic
-curl -XPOST -H 'Content-Type:application/graphql'  -d '{ patients(limit:5){ demographic:{ firstName, lastName } }' http://localhost:3000/graphql
+curl -XPOST -H 'Content-Type:application/graphql'  -d '{ patient(id:4){ firstName, lastName, medicalStatus { patientId, status }  } }' http://localhost:3000/graphql
+ >> {"data":{"patient":{"firstName":"Marlissa","lastName":"Moffett","medicalStatus":{"patientId":4,"status":"StatusD"}}}}⏎
 
-
-Get a patient
-curl -XPOST -H 'Content-Type:application/graphql'  -d '{ patient(id:4){ demographic:{ firstName } } }' http://localhost:3000/graphql
+curl -XPOST -H 'Content-Type:application/graphql'  -d '{ patient(id:4){ id, firstName, lastName, address { patientId, street } } }' http://localhost:3000/graphql
