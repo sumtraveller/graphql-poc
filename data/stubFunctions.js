@@ -3,6 +3,7 @@
  */
 let patientDemographicData = require('./patientDemographics.json');
 let patientAddressData = require('./patientAddresses.json');
+let patientMedicalStatusesData = require('./patientMedicalStatuses.json');
 
 export const getPatientDemographicFromFile = (patientId)=> {
     console.log('getting patient demographic data from file');
@@ -21,3 +22,5 @@ export const getPatientAddressFromFile = (patientId)=> {
         }
     });
 }
+
+export const getPatientMedicalStatusFromFile = (patientId)=> patientMedicalStatusesData.filter((medStatus)=> medStatus.patientId == patientId)[0]

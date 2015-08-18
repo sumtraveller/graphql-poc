@@ -79,10 +79,6 @@ export const PatientMedicalStatus = new GraphQLObjectType({
     name: 'PatientMedicalStatus',
     description: 'Patient Medical Status',
     fields: ()=> ({
-        id: {
-            type: GraphQLInt,
-            description: "Id"
-        },
         patientId: {
             type: GraphQLInt,
             description: "Patient Id"
@@ -190,7 +186,17 @@ export const PatientType = new GraphQLObjectType({
             type: PatientAddress,
             description: 'Patient Address',
             resolve: (_placeholder, {id}) => findPatientAddressById(id)
-        }
+        },
+        medicalStatus: {
+            type: PatientMedicalStatus,
+            description: 'Patient Medical Status',
+            resolve: (patient)=> {
+                let medStatus = getPatientMedicalStatus(patient)
+                console.log('medStatus', medStatus);
+
+                return medStatus;
+            }
+        },
     }),
 
     /*
@@ -200,6 +206,9 @@ export const PatientType = new GraphQLObjectType({
      description: 'Patient Medical Status',
      resolve: (patient)=> getPatientMedicalStatus(patient)
      },
+
+    /*,
+     ,
      address: {
      type: PatientAddress,
      description: 'Patient Address',
