@@ -62,7 +62,7 @@ export const getPatientById = (patientId)=> {
     return patient[0];
 }
 
-export const findPatientAddressById = (patientId)=>  getPatientAddressFromFile(patientId)[0]
+export const findPatientAddressById = (patientId)=>  getPatientAddressFromFile(patientId)
 
 export const getPatientMedicalStatus = (patient)=> {
 

@@ -14,11 +14,6 @@ export const getPatientDemographicFromFile = (patientId)=> {
     });
 }
 
-export const getPatientAddressFromFile = (patientId)=> {
-    console.log(patientId);
-    var add = patientAddressData.filter((address) => address.patientId == patientId)
-    console.log(add);
-    return add;
-}
+export const getPatientAddressFromFile = (patientId)=> patientAddressData.filter((address) => address.patientId == patientId)[0]
 
 export const getPatientMedicalStatusFromFile = (patientId)=> patientMedicalStatusesData.filter((medStatus)=> medStatus.patientId == patientId)[0]
