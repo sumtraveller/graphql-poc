@@ -1,8 +1,7 @@
 import fetch from 'node-fetch';
 import debouncedFetch from './utils/debouncedFetch'
 
-import { getPatientDemographicFromFile } from './data/stubFunctions';
-import { getPatientDemographicsFromFile } from './data/stubFunctions';
+import { getPatientDemographicFromFile, getPatientDemographicsFromFile, getPatientMedicalStatusFromFile } from './data/stubFunctions';
 
 export const getClients = () => {
     var url = 'http://www.filltext.com/?rows=5&fname={firstName}&lname={lastName}&age={number|70}&address={addressObject}';
@@ -24,15 +23,9 @@ export const getEmail = debouncedFetch((queue) => {
     })
 })
 
-export const getPatientMedicalStatus = () => {
-    var url = 'http://www.filltext.com/?rows=10&id={number|70}&patientId={number|70}&status={firstName}&updatedDate={date|10-10-2010,10-12-2015}';
-    return fetch(url)
-        .then((res) => res.json())
-        .then((data) => Promise.resolve(data));
-}
-
-
 export const getPatientDemographic = debouncedFetch((queueOfPatients)=> {
+    console.log("AAAA");
+
     // create the signature to function given a queueOfPatients
     // johnsPatientDemographicFunction( [patientIds] )
     let patientIds = queueOfPatients.map((patient)=> patient.id)
@@ -85,5 +78,14 @@ export const getPatientById = (patientId)=> {
     console.log(patient[0].id)
 
     return patient[0];
+}
+
+export const getPatientMedicalStatus = (patient)=> {
+
+    console.log('patient', patient.id)
+    let medStatus = getPatientMedicalStatusFromFile(patient.id)
+    console.log(medStatus);
+    return new Promise((resolve, reject)=> { resolve(medStatus)} );
+    //return medStatus;
 }
 
