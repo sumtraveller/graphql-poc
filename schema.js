@@ -8,7 +8,7 @@ import {
 } from 'graphql';
 
 import { PersonType, PatientType, PatientMedicalStatus } from './schemaType';
-import { getClients, getPatientMedicalStatus, getPatients, getPatientById } from './controller';
+import { getClients, getPatientMedicalStatus, findPatientAddressById, getPatientById } from './controller';
 
 const schema = new GraphQLSchema({
 

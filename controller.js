@@ -1,8 +1,7 @@
 import fetch from 'node-fetch';
 import debouncedFetch from './utils/debouncedFetch'
 
-import { getPatientDemographicFromFile } from './data/stubFunctions';
-import { getPatientDemographicsFromFile } from './data/stubFunctions';
+import { getPatientDemographicFromFile, getPatientAddressFromFile } from './data/stubFunctions';
 
 export const getClients = () => {
     var url = 'http://www.filltext.com/?rows=5&fname={firstName}&lname={lastName}&age={number|70}&address={addressObject}';
@@ -61,29 +60,18 @@ export const getPatientAddress = debouncedFetch((patient)=> {
     })
 })
 
-export const getPatients = debouncedFetch((limit)=> {
-    // create the signature to function given a queueOfPatients
-    // johnsPatientDemographicFunction( [patientIds] )
-
-    console.log('getPatientAddress');
-    console.log('getPatientAddress ' + patient.json);
-    let patientId = queueOfPatients.id
-
-    fetch('/data/patientAddresses.json').then((response) => response.json()).then((response) => {
-        queue.forEach(([patientAddress, resolve], index) => {
-            console.log(patientAddress)
-        })
-    })
-})
-
-
 export const getPatientById = (patientId)=> {
-    // create the signature to function given a queueOfPatients
-    // johnsPatientDemographicFunction( [patientIds] )
+    console.log('findPatientById');
     console.log(patientId)
     var patient = getPatientDemographicFromFile(patientId)
-    console.log(patient[0].id)
-
+    console.log('getPatientDemorgraphicFromFile returned')
     return patient[0];
 }
 
+export const findPatientAddressById = (patientId)=> {
+    console.log('findPatientAddressById');
+    console.log(patientId);
+    var patient = getPatientAddressFromFile(patientId);
+    console.log('getPatientAddressFromFile returned')
+    return patient[0];
+}

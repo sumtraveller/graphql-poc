@@ -8,8 +8,7 @@ import {
 
 var countNumTimesCalled = 0;
 
-import { getEmail, getPatientDemographic, getPatientAddress } from './controller';
-
+import { getEmail, getPatientDemographic, getPatientMedicalStatus, findPatientAddressById } from './controller';
 
 export const PersonType = new GraphQLObjectType({
     name: 'Person',
@@ -171,26 +170,6 @@ export const MedicalTreatment = new GraphQLObjectType({
     }),
 })
 
-export const PatientDemographic = new GraphQLObjectType({
-    name: 'PatientDemographics',
-    description: 'Demographic information',
-    fields: ()=> ({
-        firstName: {
-            type: GraphQLString,
-            description: 'firstname'
-        },
-        lastName: {
-            type: GraphQLString,
-            description: 'lastname'
-        },
-        address: {
-            type: PatientAddress,
-            description: 'Patient Address',
-            resolve: (patient)=> getPatientAddress(patient)
-        },
-    }),
-})
-
 export const PatientType = new GraphQLObjectType({
     name: 'Patient',
     description: 'A patient record',
@@ -201,17 +180,21 @@ export const PatientType = new GraphQLObjectType({
         },
         firstName: {
             type: GraphQLString,
-            description: 'Patient first name',
+            description: 'Patient first name'
         },
         lastName: {
             type: GraphQLString,
-            description: 'Patient last name',
+            description: 'Patient last name'
         },
+        address: {
+            type: PatientAddress,
+            description: 'Patient Address',
+            resolve: (_placeholder, {id}) => findPatientAddressById(id)
+        }
     }),
-    //resolve: (patient)=> getPatientDemographic(patient),
 
-    /*,
-     ,
+    /*
+    ,
      medicalStatus: {
      type: PatientMedicalStatus,
      description: 'Patient Medical Status',
