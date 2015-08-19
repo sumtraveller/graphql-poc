@@ -11,7 +11,9 @@ export const getPatientsFromFile = (limit)=> limit == null || limit > patientDem
 
 export const getPatientAddressFromFile = (patientId)=> patientAddressData.filter((address) => address.patientId == patientId)[0]
 
+export const getPatientAddressesFromFile = (patientIds)=> patientAddressData.filter((address) => patientIds.indexOf(address.patientId) != -1)
+
 export const getPatientMedicalStatusFromFile = (patientId)=> patientMedicalStatusesData.filter((medStatus)=> medStatus.patientId == patientId)[0]
 
-export const getPatientMedicalStatusesFromFile = (patientIds)=>
-    patientMedicalStatusesData.filter((medStatus)=> patientIds.contains(medStatus.patientId))
+export const getPatientMedicalStatusesFromFile = (patientIds)=> patientMedicalStatusesData.filter((medStatus)=> patientIds.indexOf(medStatus.patientId) != -1 )
+

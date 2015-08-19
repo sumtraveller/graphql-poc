@@ -190,12 +190,7 @@ export const PatientType = new GraphQLObjectType({
         medicalStatus: {
             type: PatientMedicalStatus,
             description: 'Patient Medical Status',
-            resolve: (patient)=> {
-                let medStatus = getPatientMedicalStatus(patient)
-                console.log('medStatus', medStatus);
-
-                return medStatus;
-            }
+            resolve: (patient)=> getPatientMedicalStatus(patient)
         },
     }),
 
