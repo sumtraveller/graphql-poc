@@ -17,7 +17,7 @@ const schema = new GraphQLSchema({
         fields: {
             people: {
                 type: new GraphQLList(PersonType),
-                resolve: (__placeholder, {limit})=> {
+                resolve: (parent, {limit})=> {
                     console.log(limit);
                     return getClients()
                 },
@@ -30,14 +30,14 @@ const schema = new GraphQLSchema({
                 args: {
                     limit: {type: GraphQLInt}
                 },
-                resolve: (__placeholder, {limit}) => getPatients(limit)
+                resolve: (parent, {limit}) => getPatients(limit)
             },
             patient: {
                 type: PatientType,
                 args: {
                     id: {type: GraphQLInt}
                 },
-                resolve: (__placeholder, {id}) => {
+                resolve: (parent, {id}) => {
                     return getPatientById(id)
                 }
             },
