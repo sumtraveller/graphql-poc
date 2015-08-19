@@ -7,7 +7,7 @@ import {
     getPatientAddressesFromFile,
     getPatientMedicalStatusFromFile,
     getPatientMedicalStatusesFromFile,
-    getPatientFinanceProgramFromFile
+    getPatientFinanceProgramsFromFile,
 } from './data/stubFunctions';
 
 export const getClients = () => {
@@ -103,7 +103,14 @@ export const getPatientMedicalStatus = debouncedFetch((queuedPatients)=> {
     });
 })
 
-export const getPatientFinanceProgram =  (patient)=>{
+export const getPatientFinanceProgram = debouncedFetch((queuedPatients)=> {
     global.requestCount++;
-    return getPatientFinanceProgramFromFile(patient.id)[0]
-}
+    let patientIds = queuedPatients.map(([patient])=> patient.id)
+    let financePrograms = getPatientFinanceProgramsFromFile(patientIds)
+
+    queuedPatients.forEach(([patient, resolve], index)=> {
+        resolve(financePrograms[index]);
+    });
+
+    //return getPatientFinanceProgramFromFile(patient.id)[0]
+});

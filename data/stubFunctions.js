@@ -20,3 +20,5 @@ export const getPatientMedicalStatusesFromFile = (patientIds)=> patientMedicalSt
 
 export const getPatientFinanceProgramFromFile = (patientId)=> financePrograms.filter((financeProgram)=> financeProgram.patientId==patientId )
 
+export const getPatientFinanceProgramsFromFile = (patientIds)=> financePrograms.filter((finances)=> patientIds.indexOf(finances.patientId) != -1 )
+
