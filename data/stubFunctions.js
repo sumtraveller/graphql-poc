@@ -5,14 +5,9 @@ let patientDemographicData = require('./patientDemographics.json');
 let patientAddressData = require('./patientAddresses.json');
 let patientMedicalStatusesData = require('./patientMedicalStatuses.json');
 
-export const getPatientDemographicFromFile = (patientId)=> {
-    console.log('getting patient demographic data from file');
-    return patientDemographicData.filter(function (patient) {
-        if (patient.id == patientId) {
-            return patient;
-        }
-    });
-}
+export const getPatientFromFile = (patientId)=> patientDemographicData.filter((patient)=> patient.id == patientId)[0]
+
+export const getPatientsFromFile = (limit)=> limit == null || limit > patientDemographicData.length ? patientDemographicData : patientDemographicData.slice(0, limit)
 
 export const getPatientAddressFromFile = (patientId)=> patientAddressData.filter((address) => address.patientId == patientId)[0]
 

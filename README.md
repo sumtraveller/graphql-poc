@@ -25,3 +25,9 @@ curl -XPOST -H 'Content-Type:application/graphql'  -d '{ patient(id:4){ firstNam
  >> {"data":{"patient":{"firstName":"Marlissa","lastName":"Moffett","medicalStatus":{"patientId":4,"status":"StatusD"}}}}⏎
 
 curl -XPOST -H 'Content-Type:application/graphql'  -d '{ patient(id:4){ id, firstName, lastName, address { patientId, street } } }' http://localhost:3000/graphql
+
+Get limit number of patients
+curl -XPOST -H 'Content-Type:application/graphql'  -d '{ patients(limit:3){ firstName, lastName, medicalStatus { patientId, status }  } }' http://localhost:3000/graphql
+
+Get all patients
+curl -XPOST -H 'Content-Type:application/graphql'  -d '{ patients{ firstName, lastName, medicalStatus { patientId, status }  } }' http://localhost:3000/graphql

@@ -8,7 +8,7 @@ import {
 } from 'graphql';
 
 import { PersonType, PatientType, PatientMedicalStatus } from './schemaType';
-import { getClients, getPatientMedicalStatus, findPatientAddressById, getPatientById } from './controller';
+import { getClients, getPatientMedicalStatus, getPatientById, getPatients} from './controller';
 
 const schema = new GraphQLSchema({
 
@@ -30,10 +30,7 @@ const schema = new GraphQLSchema({
                 args: {
                     limit: {type: GraphQLInt}
                 },
-                resolve: (__placeholder, {limit}) => {
-                    console.log(limit);
-                    return getPatients(limit)
-                }
+                resolve: (__placeholder, {limit}) => getPatients(limit)
             },
             patient: {
                 type: PatientType,
