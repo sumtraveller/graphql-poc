@@ -1,0 +1,53 @@
+I've updated the SchemaType file with a new
+
+export const PatientType = new GraphQLObjectType({
+    name: 'Patient',
+    description: 'A patient record',
+    demographic: {
+        type: PatientDemographic,
+        description: 'Patient Demographics'
+    },
+    medicalStatus: {
+        type: PatientMedicalStatus,
+        description: 'Patient Medical Status'
+    },
+    financeProgram: {
+        type: PatientFinanceProgram,
+        description: 'Finance Program'
+    },
+    medicalTreatments: {
+        type: MedicalTreatments,
+        description: 'medical Treatments'
+    },
+})
+
+The idea would be to hydrate the Patient record you would need to make the following calls
+
+***************************************************
+
+Query => get(N) patient records
+
+Service Calls:
+1    API.getPatientDemographics(N /* number to get */ )
+2      > API.getMedicalStatus([patientIDs])
+3      > API.getFinancialPrograms([patientIDs])
+4           > API.getFinancialTransactions([patientIDs])
+5              > API.getMedicalTreatments([medicalTreatmentIds])
+6      > API.getMedicalTreatmentsForPatient([patientIDs])
+
+Ideally this would be O(6) -- or w/ caching, O(5)
+
+***************************************************
+
+If naively written, performance would be bad. Consider:
+
+1    API.getPatientDemographics(N /* number to get */ )
+N      > API.getMedicalStatus(patientId)
+N      > API.getFinancialPrograms(patientId)
+M           > API.getFinancialTransactions(patientId)
+M              > API.getMedicalTreatments(medicalTreatmentId)
+N      > API.getMedicalTreatmentsForPatient(patientID)
+
+O( 1 + N + N + N*M + N*M + N )
+
+***************************************************

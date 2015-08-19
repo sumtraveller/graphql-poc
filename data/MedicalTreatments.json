@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "descriptionOfTreatment": "Treatment A"
+  },
+  {
+    "id": 2,
+    "descriptionOfTreatment": "Treatment B"
+  },
+  {
+    "id": 3,
+    "descriptionOfTreatment": "Treatment C"
+  },
+  {
+    "id": 4,
+    "descriptionOfTreatment": "Treatment D"
+  },
+  {
+    "id": 5,
+    "descriptionOfTreatment": "Treatment E"
+  },
+  {
+    "id": 6,
+    "descriptionOfTreatment": "Treatment F"
+  },
+  {
+    "id": 7,
+    "descriptionOfTreatment": "Treatment G"
+  }
+]
