@@ -1,7 +1,7 @@
 import fetch from 'node-fetch';
 import debouncedFetch from './utils/debouncedFetch'
 
-import { getPatientsFromFile, getPatientFromFile, getPatientAddressFromFile, getPatientMedicalStatusFromFile } from './data/stubFunctions';
+import { getPatientsFromFile, getPatientFromFile, getPatientAddressFromFile, getPatientMedicalStatusFromFile, getPatientMedicalStatusesFromFile } from './data/stubFunctions';
 
 export const getClients = () => {
 
@@ -79,10 +79,16 @@ export const findPatientAddressById = (patientId)=> {
     return getPatientAddressFromFile(patientId);
 }
 
-export const getPatientMedicalStatus = (patient)=> {
+export const getPatientMedicalStatus = debouncedFetch((queuedPatients)=> {
     global.requestCount++;
-    return getPatientMedicalStatusFromFile(patient.id);
-}
+
+    let patientIds = queuedPatients.map((patient)=> patient.id)
+    let medicalStatuses = getPatientMedicalStatusesFromFile(patientIds)
+    //return getPatientMedicalStatusFromFile(patient.id);
+    queuedPatients.forEach(([patient, resolve], index)=> {
+        resolve(medicalStatuses[index])
+    });
+})
 //console.log(medStatus);
 //return new Promise((resolve, reject)=> { resolve(medStatus)} );
 //
