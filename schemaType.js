@@ -8,7 +8,12 @@ import {
 
 var countNumTimesCalled = 0;
 
-import { getEmail, getPatientDemographic, getPatientMedicalStatus, findPatientAddressById } from './controller';
+import { getEmail,
+    getPatientDemographic,
+    getPatientMedicalStatus,
+    findPatientAddressById,
+    getPatientFinanceProgram
+} from './controller';
 
 export const PersonType = new GraphQLObjectType({
     name: 'Person',
@@ -134,19 +139,16 @@ export const PatientFinanceProgram = new GraphQLObjectType({
     name: 'PatientFinanceProgram',
     description: 'Finance program',
     fields: ()=> ({
-        patientId: {
-            type: GraphQLInt,
-            description: "Patient Id"
-        },
         balance: {
-            type: GraphQLFloat,
+            type: GraphQLString,
             description: 'balance'
-        },
-        transactions: {
-            type: GraphQLList(FinancialTransaction),
-            description: 'Financial Transactions',
-            resolve: (patient)=> getPatientFinancialTransactions(patient)
-        },
+        }
+//        ttransactions: {
+//            type: GraphQLList(FinancialTransaction),
+//            description: 'Financial Transactions'
+//            ,
+//            resolve: (patient)=> getPatientFinancialTransactions(patient)
+//        },
     }),
 });
 
@@ -192,26 +194,10 @@ export const PatientType = new GraphQLObjectType({
             description: 'Patient Medical Status',
             resolve: (patient)=> getPatientMedicalStatus(patient)
         },
+        financeProgram: {
+            type: PatientFinanceProgram,
+            description: 'Finance Program',
+            resolve: (patient)=> getPatientFinanceProgram(patient)
+        },
     }),
-
-    /*
-     ,
-     medicalStatus: {
-     type: PatientMedicalStatus,
-     description: 'Patient Medical Status',
-     resolve: (patient)=> getPatientMedicalStatus(patient)
-     },
-
-     /*,
-     ,
-     address: {
-     type: PatientAddress,
-     description: 'Patient Address',
-     resolve: (patient) => getAddress(person)
-     },
-     financeProgram: {
-     type: PatientFinanceProgram,
-     description: 'Finance Program',
-     resolve: (patient)=> getPatientFinanceProgram(patient)
-     } */
 })
